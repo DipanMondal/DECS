@@ -120,7 +120,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+base_dir = '\DECS'
 
 STATIC_ROOT = os.path.join(base_dir, 'staticfiles')
 
