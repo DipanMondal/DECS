@@ -121,12 +121,13 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-base_dir = '\DECS'
 
-STATIC_ROOT = os.path.join(base_dir, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+print(BASE_DIR)
 
 STATICFILES_DIRS = [
-    os.path.join(base_dir, 'DECS', 'static'),
+    os.path.join(BASE_DIR, 'DECS', 'static'),
 ]
 
 # Default primary key field type

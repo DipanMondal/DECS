@@ -11,6 +11,8 @@ authenticated = False
 
 def admin_login(request):
     global authenticated
+    if authenticated:
+        return redirect('/comments/')
     if request.method == "POST":
         data = request.POST
         username = data.get('username')
@@ -39,7 +41,7 @@ def show_comment(request):
         comments = Reviewer.objects.all()
         return render(request,"comments.html",context={'comments':comments})
     else:
-        return redirect('/author/')
+        return render(request,'login_page.html')
 
 
 def delete_comment(request,id):
