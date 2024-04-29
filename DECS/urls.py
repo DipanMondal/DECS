@@ -18,8 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from HomePage import views
 import HomePage
+import accounts.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',HomePage.views.home,name="home_page")
+    path('',HomePage.views.home,name="home_page"),
+    path('author/',accounts.views.admin_login,name="login_page"),
+    path('comments/',accounts.views.show_comment,name="comment"),
+    path('delete/<id>/',accounts.views.delete_comment,name="delete_comments"),
+    path('admin-logout/',accounts.views.admin_logout,name='logout')
 ]

@@ -1,10 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Product Menu</title>
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
-
+    <title>Products</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+        th, td {
+            border: 2px solid black; /* Add border to each cell */
+            padding: 4px;
+            text-align: left;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body style="background-image: url(img.jpg); background-size: cover; background-repeat: no-repeat;" bgcolor="grey">
+    <a href="/admin-logout/" class="btn btn-primary logout-btn">Logout</a>
+    {% if messages %}
+        <div class="alert alert-primary" role="alert">
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <h1 align="center" ><b><u>Comments</u></b></h1>
+    <table align="center">
+        <tr>
+            <th>SL No.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Comments</th>
+            <th>Delete</th>
+        </tr>
+        {% for comment in comments %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{comment.name}}</td>
+            <td>{{comment.email}}</td>
+            <td>{{comment.feedback}}</td>
+            <td>
+                <a href="/delete/{{comment.id}}/" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
