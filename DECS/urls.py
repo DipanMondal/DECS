@@ -19,6 +19,8 @@ from django.urls import path
 from HomePage import views
 import HomePage
 import accounts.views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,3 +30,5 @@ urlpatterns = [
     path('delete/<id>/',accounts.views.delete_comment,name="delete_comments"),
     path('admin-logout/',accounts.views.admin_logout,name='logout')
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
