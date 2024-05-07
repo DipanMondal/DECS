@@ -41,7 +41,7 @@ def show_comment(request):
         comments = Reviewer.objects.all()
         return render(request,"comments.html",context={'comments':comments})
     else:
-        return render(request,'login_page.html')
+        return redirect('/author/')
 
 
 def delete_comment(request,id):
